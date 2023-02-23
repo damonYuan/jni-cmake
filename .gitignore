@@ -1,0 +1,9 @@
+/build
+/cmake-build-debug
+/.idea
+.DS_Store
+*.log
+*.dylib
+*.o
+*.jar
+/target
