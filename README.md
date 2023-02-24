@@ -1,6 +1,8 @@
 README 
 ====
 
+Building JNI project using `cmake` on Mac M1.
+
 ## Build with cmake
 
 ```
