@@ -7,6 +7,7 @@ README
 javac -h . src/main/java/com/damonyuan/jni/HelloWorldJNI.java
 cmake -S . -B build
 cmake --build build
+java -Djava.library.path=build -jar build/sbmcprj.jar
 ```
 
 ## Build with g++/clang
