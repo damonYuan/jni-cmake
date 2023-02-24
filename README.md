@@ -19,4 +19,8 @@ g++ -v -dynamiclib -o libsbmc.dylib com_damonyuan_jni_HelloWorldJNI.o  -lc
 
 ## Notes
 
-1. in Mac M1, please install the arm version of JDK.
+1. in Mac M1, please install the arm version of JDK. Confirm it with the following command
+   ```
+   # file /Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home/bin/java
+   /Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home/bin/java: Mach-O 64-bit executable arm64
+   ```
