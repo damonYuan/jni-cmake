@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.23)
 set(CMAKE_CXX_STANDARD 11)
-#set(CMAKE_CXX_STANDARD_REQUIRED True)
-#set(CMAKE_SYSTEM_PROCESSOR x86_64) # force x86_64 for M1
-set(CMAKE_SYSTEM_NAME Darwin) # for M1
-#set(CMAKE_OSX_ARCHITECTURES  x86_64) # force x86_64 for M1
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_SYSTEM_NAME Darwin)
 set(MAIN_APP_PROJECT_NAME sbmcprj)
 set(PROJECT_LIB_NAME sbmc)
 
@@ -15,13 +13,16 @@ if (JNI_FOUND)
 endif()
 message (STATUS "CMAKE_CURRENT_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}")
 message (STATUS "CMAKE_CURRENT_BINARY_DIR=${CMAKE_CURRENT_BINARY_DIR}")
+message (STATUS "Java_JAVAC_EXECUTABLE=${Java_JAVAC_EXECUTABLE}")
 include(UseJava)
 
 project(${MAIN_APP_PROJECT_NAME})
 
 # compile xxx.java to class file
 set(CMAKE_JAVA_COMPILE_FLAGS "-source" "11" "-target" "11")
-add_jar(${MAIN_APP_PROJECT_NAME} src/main/java/com/damonyuan/jni/HelloWorldJNI.java MANIFEST "${CMAKE_CURRENT_SOURCE_DIR}/src/main/resources/MANIFEST.MF")
+add_jar(${MAIN_APP_PROJECT_NAME}
+    src/main/java/com/damonyuan/jni/HelloWorldJNI.java
+    ENTRY_POINT com/damonyuan/jni/HelloWorldJNI)
 get_target_property(_jarFile ${MAIN_APP_PROJECT_NAME} JAR_FILE)
 get_target_property(_classDir ${MAIN_APP_PROJECT_NAME} CLASSDIR)
 
