@@ -11,6 +11,8 @@ cmake --build build
 
 ## Build with g++/clang
 
+Follow this [Tutorial](https://www.baeldung.com/jni).
+
 ```
 javac -h . HelloWorldJNI.java
 g++ -v -c -fPIC -I${JAVA_HOME}/include -I${JAVA_HOME}/include/darwin com_damonyuan_jni_HelloWorldJNI.cpp -o com_damonyuan_jni_HelloWorldJNI.o
